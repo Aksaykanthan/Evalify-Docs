@@ -2,7 +2,7 @@
 title: Release of Tailwind Nextjs Starter Blog v2.0
 series:
   order: 3
-  title: "Blog Starter"
+  title: 'Blog Starter'
 date: '2023-08-05'
 lastmod: '2023-08-05'
 language: en
@@ -162,7 +162,7 @@ Layout components available in the `layouts` directory, provide a simple way to 
 
 The downside of building a popular template is that you start seeing multiple similar sites everywhere 😆. While users are encouraged to customized the layouts to their liking, having more layout options that are easily switchable promotes diversity and perhaps can be a good starting point for further customizations.
 
-In v2, I added a new post layout - `PostBanner`. It features a large banner image and a centered content container. Check out "[Pictures of Canada](/blog/pictures-of-canada)" blog post which has been updated to use the new layout.
+In v2, I added a new post layout - `PostBanner`. It features a large banner image and a centered content container. Check out "[Pictures of Canada](/docs/pictures-of-canada)" blog post which has been updated to use the new layout.
 
 The default blog listing layout has also been updated to include a side bar with blog tags. The search bar in the previous layout has been replace with the new command palette search. To switch back to the old layout, simply change the pages that use the `ListLayoutWithTags` component back to the original `ListLayout`.
 
@@ -191,5 +191,7 @@ Using the template? Support this effort by giving a star on GitHub, sharing your
 [MIT](https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/main/LICENSE) © [Timothy Lin](https://www.timrlx.com)
 
 [^1]: The previous version injects Preact into the production build. However, this is no longer possible as it does not support React Server Components. While overall bundle size has increased to about 85kB, most of the content can be pre-rendered on the server side, resulting in a low first contentful paint and time to interactive. Using React throughtout also leads to more consistent behavior with external libraries and components.
+
 [^2]: This is different from Next.js App Directory layouts and are best thought of as reusable React containers.
+
 [^3]: This takes advantage of Server Components by making it simple to specify the layout of choice in the markdown file and match against the `layouts` object which is then used to render the appropriate layout component.

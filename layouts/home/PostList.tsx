@@ -42,7 +42,7 @@ const PostList: React.FC<PostListProps> = ({ posts, locale, t, maxDisplay }) => 
                     <div>
                       <h2 className="text-2xl font-bold leading-8 tracking-tight">
                         <Link
-                          href={`/${locale}/blog/${slug}`}
+                          href={`/${locale}/docs/${slug}`}
                           className="text-gray-900 dark:text-gray-100"
                         >
                           {title}
@@ -62,7 +62,7 @@ const PostList: React.FC<PostListProps> = ({ posts, locale, t, maxDisplay }) => 
                   </div>
                   <div className="text-base font-medium leading-6">
                     <Link
-                      href={`/${locale}/blog/${slug}`}
+                      href={`/${locale}/docs/${slug}`}
                       className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                       aria-label={`${t('more')}"${title}"`}
                     >

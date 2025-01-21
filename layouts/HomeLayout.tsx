@@ -1,6 +1,6 @@
 import Link from '@/components/mdxcomponents/Link'
 import siteMetadata from '@/data/siteMetadata'
-import NewsletterForm from '@/components/newletter/NewsletterForm'
+
 import { createTranslation } from '../app/[locale]/i18n/server'
 import { LocaleTypes } from '../app/[locale]/i18n/settings'
 import PostList from './home/PostList'
@@ -34,17 +34,12 @@ export default async function HomeLayout({ posts, params: { locale } }: HomeProp
       {posts.length > MAX_DISPLAY && (
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
-            href={`/${locale}/blog`}
+            href={`/${locale}/docs`}
             className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
             aria-label={t('all')}
           >
             {t('all')} &rarr;
           </Link>
-        </div>
-      )}
-      {siteMetadata.newsletter?.provider && (
-        <div className="flex items-center justify-center pt-4">
-          <NewsletterForm />
         </div>
       )}
     </>

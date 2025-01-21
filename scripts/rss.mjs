@@ -11,9 +11,9 @@ const defaultLocale = 'en'
 
 const generateRssItem = (config, post, locale) => `
   <item>
-    <guid>${config.siteUrl}${defaultLocale === locale ? '' : '/' + locale}/blog/${post.slug}</guid>
+    <guid>${config.siteUrl}${defaultLocale === locale ? '' : '/' + locale}/docs/${post.slug}</guid>
     <title>${escape(post.title)}</title>
-    <link>${config.siteUrl}${defaultLocale === locale ? '' : '/' + locale}/blog/${post.slug}</link>
+    <link>${config.siteUrl}${defaultLocale === locale ? '' : '/' + locale}/docs/${post.slug}</link>
     ${post.summary ? `<description>${escape(post.summary)}</description>` : ''}
     ${post.date ? `<pubDate>${new Date(post.date).toUTCString()}</pubDate>` : ''}
     <author>${config.email} (${config.author})</author>
@@ -25,7 +25,7 @@ const generateRss = (config, posts, locale, page = 'feed.xml') => `
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>${escape(config.title)}</title>
-      <link>${config.siteUrl}${defaultLocale === locale ? '' : '/' + locale}/blog</link>
+      <link>${config.siteUrl}${defaultLocale === locale ? '' : '/' + locale}/docs</link>
       <description>${escape(config.description)}</description>
       <language>${locale}</language>
       <managingEditor>${config.email} (${config.author})</managingEditor>

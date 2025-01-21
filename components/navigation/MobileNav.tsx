@@ -106,7 +106,7 @@ const MobileNav = () => {
                 className="flex w-full items-center justify-between px-12 py-4 text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
                 onClick={toggleAccordion}
               >
-                <div>{t('about')}:</div>
+                <div>Authors</div>
                 <motion.div
                   animate={{ rotate: accordionOpen ? 180 : 0 }}
                   transition={{ duration: 0.3 }}

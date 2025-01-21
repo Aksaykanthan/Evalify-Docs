@@ -13,7 +13,7 @@ import ScrollTopAndComment from '@/components/scroll'
 import { createTranslation } from 'app/[locale]/i18n/server'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { PostSeriesBox } from '@/components/seriescard'
-import Share from '@/components/share'
+
 import { Toc } from 'pliny/mdx-plugins'
 import Sidetoc from '@/components/sidetoc'
 
@@ -125,7 +125,6 @@ export default async function PostLayout({
                 {` • `}
                 <Link href={editUrl(filePath)}>{t('github')}</Link>
               </div>
-              <Share title={title} slug={slug} />
               <div
                 className="mt-10 pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
                 id="comment"
@@ -158,7 +157,7 @@ export default async function PostLayout({
                           {t('preva')}
                         </p>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${locale}/blog/${prev.slug}`}>{prev.title}</Link>
+                          <Link href={`/${locale}/docs/${prev.slug}`}>{prev.title}</Link>
                         </div>
                       </div>
                     )}
@@ -168,7 +167,7 @@ export default async function PostLayout({
                           {t('nexta')}
                         </p>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${locale}/blog/${next.slug}`}>{next.title}</Link>
+                          <Link href={`/${locale}/docs/${next.slug}`}>{next.title}</Link>
                         </div>
                       </div>
                     )}
@@ -179,7 +178,7 @@ export default async function PostLayout({
                 <Link
                   href={`/${locale}/${basePath}`}
                   className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                  aria-label="Back to the blog"
+                  aria-label="Back to the docs"
                 >
                   &larr;{t('back')}
                 </Link>

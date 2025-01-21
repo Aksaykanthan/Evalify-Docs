@@ -47,20 +47,20 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
     ...(showAuthorsSearch
       ? []
       : [
-          {
-            id: 'about',
-            name: locale === fallbackLng ? 'About' : 'À propos',
-            keywords: '',
-            shortcut: ['a'],
-            section: locale === fallbackLng ? 'Navigate' : 'Naviguer',
-            perform: () => router.push(`/${locale}/about`),
-            icon: (
-              <i>
-                <AboutIcon />
-              </i>
-            ),
-          },
-        ]),
+        {
+          id: 'about',
+          name: locale === fallbackLng ? 'About' : 'À propos',
+          keywords: '',
+          shortcut: ['a'],
+          section: locale === fallbackLng ? 'Navigate' : 'Naviguer',
+          perform: () => router.push(`/${locale}/about`),
+          icon: (
+            <i>
+              <AboutIcon />
+            </i>
+          ),
+        },
+      ]),
   ]
   /* issue when using regular translations, this is a workaround to show how to implement section titles */
   const navigationSection = locale === fallbackLng ? 'Navigate' : 'Naviguer'
@@ -85,11 +85,11 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
           },
           {
             id: 'blog',
-            name: locale === fallbackLng ? 'Blog' : 'Blog',
+            name: locale === fallbackLng ? 'Docs' : 'Docs',
             keywords: '',
             shortcut: ['b'],
             section: navigationSection,
-            perform: () => router.push(`/${locale}/blog`),
+            perform: () => router.push(`/${locale}/docs`),
             icon: (
               <i>
                 <BlogIcon />
@@ -110,12 +110,12 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
             ),
           },
           {
-            id: 'projects',
-            name: locale === fallbackLng ? 'Projects' : 'Projets',
+            id: 'about',
+            name: locale === fallbackLng ? 'About' : 'About',
             keywords: '',
             shortcut: ['p'],
             section: navigationSection,
-            perform: () => router.push(`/${locale}/projects`),
+            perform: () => router.push(`/${locale}/about`),
             icon: (
               <i>
                 <ProjectsIcon />
@@ -133,7 +133,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
               keywords: post?.summary || '',
               section: t('content'),
               subtitle: post.tags.join(', '),
-              perform: () => router.push(`/${locale}/blog/${post.slug}`),
+              perform: () => router.push(`/${locale}/docs/${post.slug}`),
             }))
         },
       }}

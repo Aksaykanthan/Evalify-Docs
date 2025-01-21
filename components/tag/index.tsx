@@ -20,7 +20,7 @@ const Tag = ({ text }: Props) => {
 
   return (
     <Link
-      href={`/${locale}/blog`}
+      href={`/${locale}/docs`}
       onClick={handleClick}
       className="mr-3 cursor-pointer text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
     >

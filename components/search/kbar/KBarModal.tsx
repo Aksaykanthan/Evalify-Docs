@@ -46,21 +46,7 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
   const [showSettings, setShowSettings] = useState<boolean>(false)
   const [showCopied, setShowCopied] = useState<boolean>(false)
 
-  const toggleShowEmail = () => {
-    if (siteMetadata.formspree) {
-      setShowEmailForm(!showEmailForm)
-    } else {
-      window.location.href = `mailto:${siteMetadata.email}`
-    }
-  }
 
-  const toggleSettings = () => setShowSettings(!showSettings)
-
-  const copyUrl = () => {
-    navigator.clipboard.writeText(window.location.href)
-    setShowCopied(true)
-    setTimeout(() => setShowCopied(false), 1000)
-  }
 
   const handleLocaleChange = (newLocale: string) => {
     const segments = pathname.split('/')
@@ -121,32 +107,6 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
                 <kbd className="inline-block whitespace-nowrap rounded border border-gray-400 px-1.5 align-middle text-xs font-medium leading-4 tracking-wide text-gray-400">
                   ESC
                 </kbd>
-              </div>
-              <div className="mb-1 ml-2 flex items-center space-x-2">
-                {!showSettings && (
-                  <Button
-                    onClick={toggleShowEmail}
-                    show={showEmailForm}
-                    icon={<MailIcon />}
-                    label={t('contact')}
-                    backLabel={t('back')}
-                  />
-                )}
-                {!showEmailForm && (
-                  <Button
-                    onClick={toggleSettings}
-                    show={showSettings}
-                    icon={<SettingsIcon />}
-                    label={t('settings')}
-                    backLabel={t('back')}
-                  />
-                )}
-                <CopyButton
-                  show={showEmailForm || showSettings}
-                  copyUrl={copyUrl}
-                  showCopied={showCopied}
-                  t={t}
-                />
               </div>
               {showEmailForm && (
                 <EmailForm

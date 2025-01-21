@@ -10,16 +10,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogRoutes = allBlogs
     .filter((post) => !post.draft)
     .flatMap((post) => {
-      const mainUrl = `${siteUrl}/${fallbackLng}/blog/${post.slug}`
+      const mainUrl = `${siteUrl}/${fallbackLng}/docs/${post.slug}`
       const alternatepostsUrls: { url: string; lang: string }[] = []
 
       if (post.language !== fallbackLng) {
-        const alternatepostsUrl = `${siteUrl}/${post.language}/blog/${post.slug}`
+        const alternatepostsUrl = `${siteUrl}/${post.language}/docs/${post.slug}`
         alternatepostsUrls.push({ url: alternatepostsUrl, lang: post.language })
       }
 
       if (post.language !== secondLng) {
-        const alternatepostsUrl = `${siteUrl}/${secondLng}/blog/${post.slug}`
+        const alternatepostsUrl = `${siteUrl}/${secondLng}/docs/${post.slug}`
         alternatepostsUrls.push({ url: alternatepostsUrl, lang: secondLng })
       }
 
@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return [{ url: mainUrl }, ...alternateauthorsUrls]
   })
 
-  const routes = ['', 'blog', 'projects', 'tags'].flatMap((route) => {
+  const routes = ['', 'docs', 'about', 'tags'].flatMap((route) => {
     const mainUrl = `${siteUrl}/${fallbackLng}/${route}`.replace(/\/$/, '')
     const alternateUrls: { url: string; lang: string }[] = []
 

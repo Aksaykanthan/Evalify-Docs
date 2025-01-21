@@ -12,7 +12,6 @@ import ScrollTopAndComment from '@/components/scroll'
 import { createTranslation } from 'app/[locale]/i18n/server'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { PostSeriesBox } from '@/components/seriescard'
-import Share from '@/components/share'
 import { Toc } from 'pliny/mdx-plugins'
 import Sidetoc from '@/components/sidetoc'
 
@@ -65,7 +64,6 @@ export default async function PostLayout({
                 )}
                 <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
               </div>
-              <Share title={title} slug={slug} />
               <div className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300" id="comment">
                 {siteMetadata.iswaline === true && <WalineComments />}
                 {siteMetadata.comments && siteMetadata.iscomments === true && (
@@ -77,7 +75,7 @@ export default async function PostLayout({
                   {prev && prev.slug && (
                     <div className="pt-4 xl:pt-8">
                       <Link
-                        href={`/${locale}/blog/${prev.slug}`}
+                        href={`/${locale}/docs/${prev.slug}`}
                         className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                         aria-label={`Previous post: ${prev.title}`}
                       >
@@ -88,7 +86,7 @@ export default async function PostLayout({
                   {next && next.slug && (
                     <div className="pt-4 xl:pt-8">
                       <Link
-                        href={`/${locale}/blog/${next.slug}`}
+                        href={`/${locale}/docs/${next.slug}`}
                         className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                         aria-label={`Next post: ${next.title}`}
                       >

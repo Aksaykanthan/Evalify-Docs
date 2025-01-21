@@ -1,10 +1,10 @@
 🙋‍♂️ I'm open for freelance offers.
 
-💫If you don't need a freelancer, a small tip will still be appreciated, so I'll be able to create more repositories (or improve the existing ones) and spend some time to help the community! 
+💫If you don't need a freelancer, a small tip will still be appreciated, so I'll be able to create more repositories (or improve the existing ones) and spend some time to help the community!
 
 The other way to support me, is to buy me some artworks, thank you!
 
-IMPORTANT NOTE: 
+IMPORTANT NOTE:
 
 This is still a WIP (Work In Progress).
 
@@ -59,25 +59,26 @@ This repository will sometimes be updated with new features (not present in the 
 All this can sometimes seem obsessive regarding the UI and details, -maybe too neat or a little overkill- but I also use this repository as a play and learning space.
 
 For now :
+
 - New "WebsiteEmbed" MDX component : Embed your demo templates from github with ease, and show them on your website! (Don't forget to update your Content Security Policy in the config files of your templates)
-- New "sidetoc" component :  display automatically the table of contents of your posts in a dedicated sidebar.
+- New "sidetoc" component : display automatically the table of contents of your posts in a dedicated sidebar.
 - Integration of email, theme, as well as a button to quickly copy the URL of the page you are on, with the kbar palette command.
-The motivation for this is having explored other command palette libraries, with some offering nested elements for 'Actions'. Unfortunately this is not possible with kbar, but it gave me new ideas!
+  The motivation for this is having explored other command palette libraries, with some offering nested elements for 'Actions'. Unfortunately this is not possible with kbar, but it gave me new ideas!
 - Multi-authors feature for "about" section: each author can have it's own about page available inside a dropdown menu on large screens, or displayed directly on small screens. If you want to turn it off and only use the "normal", classical about section, go to sitemetadata.js and set multiauthors to false. In any case, your main author now needs to have the field "default" set to true.
 - Featured section on home page for posts you want to pin to top : set featured to true (max two posts by default, can be modified in Featured.tsx file, in component folder) The program will pick the latest two posts with "featured : true." If no featured posts are available, this section will simply not be displayed!
 - Each tag now has its own pagination! If the number of posts is greater than the one you have defined (by default, set to 5) then a new page is automatically created for subsequent posts including the same tag.
 - Waline comment system now supported! It's probably the best open source comment system right now, with even i18n and many other great features! First, follow [the official tutorial](https://waline.js.org/en/guide/get-started/) to set up the comments database and your vercel server. There's many options available, so take the time to read their documentation. Since it's Vue based, it's still compatible with Next.js, and I created a new comment component. You'll find it in "walinecomponents" folder. I also added a new css file, and you can modify the style here if needed. Once you have deployed your application for comments, modify the sitemetadata.js file. Set "iscomments" property to false, set "iswaline"
-to true and set the url of your comments server accordingly in "walineServer". If your language is not supported by waline, make a PR to their repository or ask them kindly to add your own translation (provide it yourself first). This is what I did for supporting french, and this how we work in open source world!
+  to true and set the url of your comments server accordingly in "walineServer". If your language is not supported by waline, make a PR to their repository or ask them kindly to add your own translation (provide it yourself first). This is what I did for supporting french, and this how we work in open source world!
 
 - Series for your posts is now supported, see the deployed demo!
 
-Example of including this new feature : 
+Example of including this new feature :
 
 ```mdx
 title: Internationalization of V 2.0
 series:
-  order: 4 // You must add a number for the actual order of your post in your series
-  title: "Blog Starter" // You must add the same title to all of your posts from the same series
+order: 4 // You must add a number for the actual order of your post in your series
+title: "Blog Starter" // You must add the same title to all of your posts from the same series
 date: '2023-11-17'
 lastmod: '2023-11-17'
 language: en
@@ -477,15 +478,15 @@ export const config = {
 
 ## Posts
 
-All posts are grouped within the “data/blog” folder.
+All posts are grouped within the “data/docs” folder.
 
-They are organized into subfolders: "data/blog/en" for English, and "data/blog/fr" for French. 
+They are organized into subfolders: "data/docs/en" for English, and "data/docs/fr" for French.
 You can name the subfolders for your languages as you want : with the current configuration in contentlayer.config.ts file, the slug for your posts is the filename of your post, without the .mdx extension. All your translated posts must have the same name as the originals ones, for handling purposes of translation.
 
-Example : 
+Example :
 
-En: "data/blog/en/code-sample.mdx"
-Fr: "data/blog/fr/code-sample.mdx"
+En: "data/docs/en/code-sample.mdx"
+Fr: "data/docs/fr/code-sample.mdx"
 
 Etc.
 
@@ -651,7 +652,7 @@ const projectsData: ProjectsData = {
          to the desired date and press “Go”. No more worrying about lost keys or
          forgotten headphones with this simple yet affordable solution.`,
        imgSrc: '/static/images/time-machine.jpg',
-       href: '/blog/the-time-machine',
+       href: '/docs/the-time-machine',
      },
    ],
 
@@ -669,7 +670,7 @@ const projectsData: ProjectsData = {
         à la date souhaitée et appuyez sur "Go". Ne vous inquiétez plus des clés perdues ou
         écouteurs oubliés avec cette solution simple mais abordable.`,
       imgSrc: '/static/images/time-machine.jpg',
-      href: '/blog/the-time-machine',
+      href: '/docs/the-time-machine',
     },
   ],
 }
@@ -763,7 +764,7 @@ There's an issue when using regular translations, so I implemented a workaround 
             keywords: '',
             shortcut: ['b'],
             section: navigationSection,
-            perform: () => router.push(`/${locale}/blog`),
+            perform: () => router.push(`/${locale}/docs`),
             icon: (
               <i>
                 <BlogIcon />
@@ -807,7 +808,7 @@ There's an issue when using regular translations, so I implemented a workaround 
               keywords: post?.summary || '',
               section: t('content'),
               subtitle: post.tags.join(', '),
-              perform: () => router.push(`/${locale}/blog/${post.slug}`),
+              perform: () => router.push(`/${locale}/docs/${post.slug}`),
             }))
         },
       }}

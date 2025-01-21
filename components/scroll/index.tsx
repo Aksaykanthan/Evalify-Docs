@@ -48,15 +48,7 @@ const ScrollTopAndComment = () => {
             <SearchIcon className="h-5 w-5" />
           </div>
         </SearchButtonWrapper>
-        {siteMetadata.comments?.provider && (
-          <button
-            aria-label={t('scrollcomment')}
-            onClick={handleScrollToComment}
-            className="rounded-full bg-gray-200 p-2 text-gray-500 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
-          >
-            <CommentsIcon className="h-5 w-5" />
-          </button>
-        )}
+
         <button
           aria-label={t('scrolltop')}
           onClick={handleScrollTop}

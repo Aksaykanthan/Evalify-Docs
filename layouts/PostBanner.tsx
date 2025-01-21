@@ -11,7 +11,7 @@ import SectionContainer from '@/components/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/scroll'
 import { PostSeriesBox } from '@/components/seriescard'
-import Share from '@/components/share'
+
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { Toc } from 'pliny/mdx-plugins'
 import Sidetoc from '@/components/sidetoc'
@@ -61,7 +61,7 @@ export default function PostMinimal({
               </div>
             )}
             <div className="prose max-w-none py-4 dark:prose-invert">{children}</div>
-            <Share title={title} slug={slug} />
+
             <div className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300" id="comment">
               {siteMetadata.iswaline === true && <WalineComments />}
               {siteMetadata.comments && siteMetadata.iscomments === true && (
@@ -73,7 +73,7 @@ export default function PostMinimal({
                 {prev && prev.slug && (
                   <div className="pt-4 xl:pt-8">
                     <Link
-                      href={`/${locale}/blog/${prev.slug}`}
+                      href={`/${locale}/docs/${prev.slug}`}
                       className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                       aria-label={`Previous post: ${prev.title}`}
                     >
@@ -84,7 +84,7 @@ export default function PostMinimal({
                 {next && next.slug && (
                   <div className="pt-4 xl:pt-8">
                     <Link
-                      href={`/${locale}/blog/${next.slug}`}
+                      href={`/${locale}/docs/${next.slug}`}
                       className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                       aria-label={`Next post: ${next.title}`}
                     >

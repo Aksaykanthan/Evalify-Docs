@@ -15,7 +15,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
   return genPageMetadata({
-    title: 'Blog',
+    title: 'Docs',
     params: { locale },
   })
 }
