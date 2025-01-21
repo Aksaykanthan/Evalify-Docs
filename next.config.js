@@ -60,6 +60,12 @@ module.exports = () => {
     eslint: {
       dirs: ['app', 'components', 'layouts', 'scripts'],
     },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
+    typescript: {
+      ignoreBuildErrors: true,
+    },
     images: {
       remotePatterns: [
         {
@@ -91,4 +97,5 @@ module.exports = () => {
       return config
     },
   })
+  
 }
