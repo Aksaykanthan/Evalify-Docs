@@ -5,7 +5,6 @@ import Comments from '@/components/comments/Comments'
 import WalineComments from '@/components/comments/walinecomponents/walineComments'
 import Link from '@/components/mdxcomponents/Link'
 import PageTitle from '@/components/PageTitle'
-import SectionContainer from '@/components/SectionContainer'
 import Image from '@/components/mdxcomponents/Image'
 import Tag from '@/components/tag'
 import siteMetadata from '@/data/siteMetadata'
@@ -118,13 +117,6 @@ export default async function PostLayout({
                 </div>
               )}
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
-              <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={discussUrl(path)} rel="nofollow">
-                  {t('twitter')}
-                </Link>
-                {` • `}
-                <Link href={editUrl(filePath)}>{t('github')}</Link>
-              </div>
               <div
                 className="mt-10 pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
                 id="comment"
